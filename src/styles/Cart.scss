@@ -1,0 +1,250 @@
+@import './config/mixins.scss';
+@import './config/typography.scss';
+
+.cart {
+  width: 100%;
+  height: 100%;
+  background: #f5f6f8 0% 0% no-repeat padding-box;
+
+  &__title {
+    padding-top: 15px;
+    margin-left: 25px;
+    font-size: 36px;
+    font-weight: bolder;
+    line-height: 30px;
+    font-family: $primaryFont, Roboto, sans-serif;
+    letter-spacing: 0px;
+    color: #515c6f;
+  }
+
+  &__items {
+    margin: 40px 0px 0px 27px;
+    font-size: 16px;
+    font-family: $primaryFont, Roboto, sans-serif;
+    letter-spacing: 0.84px;
+    color: #515c6f;
+    text-transform: uppercase;
+
+    &__list {
+      margin-top: 22px;
+      height: 400px;
+      overflow-y: scroll;
+
+      .list__item {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100px;
+        padding: 20px 0;
+        justify-content: space-between;
+
+        &__left {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100px;
+          height: 100px;
+          background: #ffffff 0% 0% no-repeat padding-box;
+          box-shadow: 0px 8px 15px #e7eaf0;
+          border-radius: 50px;
+        }
+
+        &__right {
+          display: flex;
+          flex-direction: column;
+          border-bottom: 1px solid rgba(114, 124, 142, 0.1);
+          height: 100%;
+          margin: -20px 20px;
+          flex: 1;
+          padding: 20px 0;
+
+          &__title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 20px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 20px;
+            font-family: $primaryFont, Roboto, sans-serif;
+            letter-spacing: 0px;
+            color: #515c6f;
+            margin-bottom: 5px;
+
+            &__delete {
+              @include btn-standard;
+              width: 17px;
+              height: 20px;
+            }
+          }
+
+          &__items {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            font-size: 12px;
+            letter-spacing: 0px;
+            color: #515c6f;
+            height: 24px;
+            line-height: 12px;
+            justify-content: start;
+            margin-bottom: 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+
+            &__name {
+              padding-right: 5px;
+              font-weight: lighter;
+              font-size: 12px;
+              font-family: $primaryFont, Roboto, sans-serif;
+              letter-spacing: 0px;
+              color: #515c6f;
+              height: 12px;
+              text-transform: capitalize;
+            }
+          }
+
+          &__price {
+            text-align: left;
+            font-size: 20px;
+            line-height: 20px;
+            font-family: $primaryFont, Roboto, sans-serif;
+            letter-spacing: 0px;
+            color: #0c9c32;
+            opacity: 1;
+          }
+
+          &__quantity-row {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+
+            &__button {
+              @include btn-standard;
+              width: 18px;
+              height: 18px;
+              background: url('../assets/minus.svg');
+              margin-right: 12px;
+
+              &:disabled {
+                opacity: 0.4;
+                cursor: not-allowed;
+              }
+
+              &:last-child {
+                background: url('../assets/plus.svg');
+                margin-left: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 85px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid rgba(114, 124, 142, 0.24);
+    align-items: center;
+    padding-left: 25px;
+    background: #f5f6f8 0% 0% no-repeat padding-box;
+    z-index: 1;
+
+    &__left {
+      display: flex;
+      flex-direction: column;
+      width: 100px;
+      height: 57px;
+      align-items: flex-start;
+
+      &__total {
+        height: 14px;
+        line-height: 14px;
+        text-align: left;
+        font-size: 10px;
+        font-family: $primaryFont, Roboto, sans-serif;
+        letter-spacing: 0.7px;
+        color: #515c6f;
+        opacity: 0.5;
+        text-transform: uppercase;
+      }
+
+      &__amount {
+        height: 27px;
+        text-align: left;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: $primaryFont, Roboto, sans-serif;
+        line-height: 27px;
+        letter-spacing: 0px;
+        color: #515c6f;
+        opacity: 1;
+      }
+
+      &__envio {
+        height: 16px;
+        line-height: 16px;
+        text-align: left;
+        font-size: 12px;
+        font-family: $primaryFont, Roboto, sans-serif;
+        letter-spacing: 0px;
+        color: #727c8e;
+        text-transform: uppercase;
+      }
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 165px;
+      height: 46px;
+      background: #0c9c32 0% 0% no-repeat padding-box;
+      box-shadow: 0px 5px 10px #086822b4;
+      border-radius: 23px;
+      text-align: center;
+      font-weight: Bold;
+      font-size: 12px;
+      letter-spacing: 0.72px;
+      color: #ffffff;
+      font-family: $primaryFont, Roboto, sans-serif;
+      text-transform: uppercase;
+      margin-right: 45px;
+      text-decoration: none;
+
+      &--disabled {
+        pointer-events: none;
+        opacity: 0.4;
+      }
+
+      img {
+        margin-left: 27px;
+      }
+
+      &__quantity {
+        margin-left: 20px;
+        line-height: 30px;
+        font-size: 20px;
+        font-weight: bolder;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: white;
+        color: #0c9c32;
+      }
+    }
+  }
+}

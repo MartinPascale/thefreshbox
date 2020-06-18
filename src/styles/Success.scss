@@ -1,0 +1,57 @@
+@import './config/mixins.scss';
+@import './config/typography.scss';
+
+.success {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: $primaryFont, Roboto, sans-serif;
+  text-align: center;
+  background-color: #f5f6f8;
+  color: #515c6f;
+
+  &__title {
+    margin: 30px 0 20px;
+    font-size: 30px;
+    font-weight: medium;
+  }
+
+  &__description {
+    width: 252px;
+    font-weight: Regular;
+    font-size: 15px;
+    margin-bottom: 50px;
+  }
+
+  &__btn {
+    @include btn-standard;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 165px;
+    height: 46px;
+    background: #0c9c32 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 10px #ff696965;
+    border-radius: 23px;
+    text-align: center;
+    font-weight: Bold;
+    font-size: 12px;
+    letter-spacing: 0.72px;
+    color: #ffffff;
+    font-family: $primaryFont, Roboto, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    img {
+      margin-left: 27px;
+    }
+  }
+}
