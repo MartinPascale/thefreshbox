@@ -1,0 +1,21 @@
+.radio-button {
+  background-color: #ffffff;
+  border-radius: 60px;
+  border: 1px solid #cccccc;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--selected {
+    border: 1px solid #0c9c32;
+  }
+
+  &__circle {
+    background-color: #0c9c32;
+    height: 8px;
+    width: 8px;
+    border-radius: 60px;
+  }
+}

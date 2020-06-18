@@ -1,0 +1,128 @@
+@import './config/mixins.scss';
+@import './config/typography.scss';
+
+.catalogo-title {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  background-color: #0c9c32;
+  text-align: center;
+  font-size: 28px;
+  font-family: $primaryFont, Roboto, sans-serif;
+  letter-spacing: 0px;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.catalogo-list__category {
+  width: 1366px;
+  height: 480px;
+  margin-left: calc((100% - 1366px) / 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 66px;
+  font-family: $primaryFont, Roboto, sans-serif;
+  letter-spacing: 7px;
+  color: #3f385a;
+  text-transform: uppercase;
+  background: url('../assets/fruta-ninos.jpeg') no-repeat center center;
+
+  @include mobile {
+    width: 100vw;
+    margin-left: unset;
+  }
+
+  &__2 {
+    background: url('../assets/verdura-mayores.jpg') no-repeat center center;
+    width: 1366px;
+    margin-left: calc((100% - 1366px) / 2);
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 66px;
+    font-family: $primaryFont, Roboto, sans-serif;
+    letter-spacing: 7px;
+    color: #3f385a;
+    text-transform: uppercase;
+
+    @include mobile {
+      width: 100vw;
+      margin-left: unset;
+    }
+  }
+
+  &--grid {
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow-x: scroll;
+    background: #f5f7f9 0% 0% no-repeat padding-box !important;
+    justify-content: space-around !important;
+    overflow-x: scroll;
+    @include mobile {
+      scrollbar-width: none; /* Firefox 64 */
+      -ms-overflow-style: none; /* Internet Explorer 11 */
+      &::-webkit-scrollbar {
+        /** WebKit */
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    @include style-as-box;
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    height: 200px;
+    background-color: white;
+    font-size: 16px;
+    margin-left: 10px;
+    letter-spacing: unset;
+    font-family: $primaryFont, Roboto, sans-serif;
+    line-height: 16px;
+    color: black;
+
+    &__image {
+      margin-right: -30px;
+    }
+
+    &__add-to-cart {
+      position: relative;
+      top: -35px;
+    }
+
+    &__bottom {
+      background-color: #0c9c32;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 125px;
+      width: 100%;
+
+      &__name {
+        width: 120px;
+        line-height: 16px;
+        font-family: $primaryFont, Roboto, sans-serif;
+        letter-spacing: 0.26px;
+        color: #ffffff;
+        text-transform: capitalize;
+      }
+
+      &__data {
+        display: flex;
+        width: 100px;
+        justify-content: space-between;
+        color: white;
+        letter-spacing: 0px;
+        line-height: 12px;
+      }
+    }
+  }
+}

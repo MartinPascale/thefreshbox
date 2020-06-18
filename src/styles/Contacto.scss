@@ -1,0 +1,90 @@
+@import './config/mixins.scss';
+@import './config/typography.scss';
+
+.contacto {
+  display: flex;
+  height: 922px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: #f5f7f9 0% 0% no-repeat padding-box;
+
+  &__text {
+    text-align: center;
+    font-size: 31px;
+    font-family: $primaryFont, Roboto, sans-serif;
+    color: #3f385a;
+  }
+}
+
+.social-media {
+  width: 145px;
+  display: flex;
+  justify-content: space-between;
+
+  .item {
+    @include btn-standard;
+    height: 60px;
+    width: 60;
+    border-radius: 59px;
+  }
+
+  :first-child {
+    height: 57px;
+    width: 57px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 30px);
+  padding: 15px;
+
+  @include desktop {
+    width: 1366px;
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: inherit;
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #515c6f;
+
+    &:focus {
+      border-bottom: 1px solid #0c9c32;
+      outline: none;
+    }
+  }
+
+  &__text-area {
+    outline: none;
+    border: 1px solid #515c6f;
+    height: 200px;
+    padding: 10px;
+
+    &:focus {
+      border: 1px solid #0c9c32;
+      outline: none;
+    }
+  }
+
+  &__submit {
+    @include btn-standard;
+    height: 40px;
+    border-radius: 50px;
+    border: 3px solid #0c9c32;
+    background-color: white;
+    margin-top: 20px;
+
+    &:disabled {
+      opacity: 0.6;
+      border: 3px solid #515c6f;
+    }
+  }
+}

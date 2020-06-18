@@ -1,0 +1,98 @@
+@import './config/mixins.scss';
+@import './config/typography.scss';
+
+.box-card {
+  @include style-as-box;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  width: 270px;
+  height: 380px;
+  margin-left: 30px;
+  border-radius: 4px;
+
+  .box-top {
+    height: 150px;
+    width: 100%;
+    display: flex;
+
+    &__image {
+      position: relative;
+      left: 45px;
+    }
+
+    &__add-to-cart {
+      position: relative;
+      right: -45px;
+      top: 15px;
+    }
+  }
+
+  .box-bottom {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #0c9c32;
+    border-radius: 0 0 4px 4px;
+
+    &__name {
+      padding-left: 20px;
+      text-align: left;
+      font-size: 20px;
+      font-family: $primaryFont, Roboto, sans-serif;
+      letter-spacing: 0.26px;
+      color: #ffffff;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      height: 100px;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox 64 */
+      -ms-overflow-style: none; /* Internet Explorer 11 */
+      &::-webkit-scrollbar {
+        /** WebKit */
+        display: none;
+      }
+
+      &__row {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &__item {
+          font-size: 14px;
+          font-family: $primaryFont, Roboto, sans-serif;
+          letter-spacing: 0.25px;
+          color: #ffffff;
+          padding: 0 5px;
+        }
+      }
+    }
+
+    &__button {
+      @include btn-standard;
+      display: flex;
+      width: 200px;
+      height: 43px;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff 0% 0% no-repeat padding-box;
+      border-radius: 22px;
+      color: #0c9c32;
+      font-size: 28px;
+      font-family: $primaryFont, Roboto, sans-serif;
+      text-decoration: none;
+
+      &__img {
+        margin-right: 10px;
+      }
+    }
+  }
+}
