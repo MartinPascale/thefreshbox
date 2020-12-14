@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import classNames from 'classnames';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import classNames from "classnames";
 
-import { setCart } from '../reducers/actions';
+import { setCart } from "../reducers/actions";
 
-import arrow from '../assets/arrow.svg';
+import arrow from "../assets/arrow.svg";
 
 const BottomBar = ({
   isCatalogo,
@@ -39,38 +39,38 @@ const BottomBar = ({
       });
 
       const box = {
-        name: 'TU BOX',
+        name: "TU BOX",
         items: formatedItems,
-        Total: itemsTotal,
+        total: itemsTotal,
       };
 
       cart.products = [...cart.products, box];
-      cart.total = cart.total + box.Total;
+      cart.total = cart.total + box.total;
       dispatch(setCart(cart));
     }
   };
 
   return (
-    <div className='cart__bottom'>
-      <div className='cart__bottom__left'>
-        <div className='cart__bottom__left__total'>Total</div>
-        <div className='cart__bottom__left__amount'>
+    <div className="cart__bottom">
+      <div className="cart__bottom__left">
+        <div className="cart__bottom__left__total">Total</div>
+        <div className="cart__bottom__left__amount">
           ${isCatalogo ? itemsTotal : total}
         </div>
-        <div className='cart__bottom__left__envio'>Envio Gratis</div>
+        <div className="cart__bottom__left__envio">Envio Gratis</div>
       </div>
       <Link
         to={link}
         onClick={handleClick}
-        className={classNames('cart__bottom__button', {
-          'cart__bottom__button--disabled': isCheckout && !validCheckout,
+        className={classNames("cart__bottom__button", {
+          "cart__bottom__button--disabled": isCheckout && !validCheckout,
         })}
       >
-        {isCatalogo ? 'Add to Cart' : 'checkout'}
+        {isCatalogo ? "Add to Cart" : "checkout"}
         {isCheckout ? (
           <img src={arrow} />
         ) : (
-          <div className='cart__bottom__button__quantity'>
+          <div className="cart__bottom__button__quantity">
             {isCatalogo ? items.length || 0 : cart.products.length}
           </div>
         )}

@@ -1,6 +1,6 @@
-@import './config/mixins.scss';
-@import './config/typography.scss';
-@import './config/typography.scss';
+@import "./config/mixins.scss";
+@import "./config/typography.scss";
+@import "./config/typography.scss";
 
 .landing {
   top: 0;
@@ -13,7 +13,7 @@
   justify-content: center;
 
   //Background full page
-  background: url('../assets/background.png') no-repeat center center fixed;
+  background: url("../assets/background.png") no-repeat center center fixed;
 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -21,7 +21,7 @@
   background-size: cover;
 
   @include mobile {
-    background: url('../assets/mobile-back.jpg') center center;
+    background: url("../assets/mobile-back.jpg") center center;
     background-size: cover;
     padding: unset;
     overflow: unset;
@@ -31,8 +31,6 @@
     display: flex;
     align-items: center;
     position: relative;
-    top: calc(50vh - 250px);
-    left: calc(62% - 380px);
     width: 650px;
     flex-direction: column;
 

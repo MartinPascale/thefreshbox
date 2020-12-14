@@ -1,5 +1,5 @@
-@import './config/mixins.scss';
-@import './config/typography.scss';
+@import "./config/mixins.scss";
+@import "./config/typography.scss";
 
 .checkout {
   padding: 15px;
@@ -154,7 +154,7 @@
     &__list {
       margin-top: 22px;
       height: 400px;
-      overflow-y: scroll;
+      overflow-y: auto;
 
       .list__item {
         display: flex;
@@ -245,11 +245,11 @@
               @include btn-standard;
               width: 18px;
               height: 18px;
-              background: url('../assets/minus.svg');
+              background: url("../assets/minus.svg");
               margin-right: 12px;
 
               &:last-child {
-                background: url('../assets/plus.svg');
+                background: url("../assets/plus.svg");
                 margin-left: 12px;
               }
             }

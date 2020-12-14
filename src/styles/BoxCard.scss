@@ -1,5 +1,5 @@
-@import './config/mixins.scss';
-@import './config/typography.scss';
+@import "./config/mixins.scss";
+@import "./config/typography.scss";
 
 .box-card {
   @include style-as-box;
@@ -39,7 +39,6 @@
     border-radius: 0 0 4px 4px;
 
     &__name {
-      padding-left: 20px;
       text-align: left;
       font-size: 20px;
       font-family: $primaryFont, Roboto, sans-serif;

@@ -1,22 +1,28 @@
-@import './config/mixins.scss';
-@import './config/typography.scss';
-@import './config/typography.scss';
+@import "./config/mixins.scss";
+@import "./config/typography.scss";
+@import "./config/typography.scss";
 
 .navigation {
+  @include style-as-box;
   display: flex;
   width: 100%;
   height: 60px;
   position: fixed;
+  top: 0;
   z-index: 1;
   background-color: #0c9c32;
   justify-content: flex-end;
+  border-radius: 0;
 
   &--no-background {
     background: none;
+    box-shadow: none;
   }
 
-  @include mobile {
-    display: none;
+  img {
+    position: absolute;
+    left: 20px;
+    top: 10px;
   }
 
   .item {
@@ -29,11 +35,18 @@
     text-transform: uppercase;
     text-decoration: none;
     margin-right: 15px;
+    display: flex;
+    align-items: center;
+    z-index: 11;
+
+    @include mobile {
+      font-size: 0.8rem;
+    }
 
     &:after {
       background: none repeat scroll 0 0 transparent;
       bottom: 0;
-      content: '';
+      content: "";
       display: block;
       height: 2px;
       left: 50%;

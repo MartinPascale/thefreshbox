@@ -1,37 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-import '../styles/Header.scss';
+import logo from "../assets/logo2.png";
 
-const Header = (props) => {
+import "../styles/Header.scss";
+
+const Header = ({ fromAbout, contactRef }) => {
   const [contacto, setContacto] = useState();
   const catalogo = window.innerHeight + 600;
   const isScrolled = useSelector((state) => state.toJS().isScrolled);
 
   const scrollTo = (destination) => {
-    window.scrollTo(0, destination);
+    if (fromAbout) {
+      window.scrollTo(0, document.body.scrollHeight);
+    } else {
+      window.scrollTo(0, destination);
+    }
   };
 
   useEffect(() => {
-    setContacto(props.contactRef.current.offsetTop);
+    setContacto(contactRef && contactRef.current.offsetTop);
   }, []);
 
   return (
     <div
       className={
-        isScrolled ? 'navigation' : 'navigation navigation--no-background'
+        isScrolled || fromAbout
+          ? "navigation"
+          : "navigation navigation--no-background"
       }
     >
-      <button onClick={() => scrollTo(contacto)} className='item'>
+      <Link to="/">
+        <img src={logo} width={40} height={40} />
+      </Link>
+      <button onClick={() => scrollTo(contacto)} className="item">
         contacto
       </button>
-      <button onClick={() => scrollTo(catalogo)} className='item'>
-        productos
-      </button>
-      <Link to='/about' className='item'>
-        Sobre Nosotros
-      </Link>
+      {!fromAbout && (
+        <button onClick={() => scrollTo(catalogo)} className="item">
+          productos
+        </button>
+      )}
+      {!fromAbout && (
+        <Link to="/about" className="item">
+          Sobre Nosotros
+        </Link>
+      )}
     </div>
   );
 };

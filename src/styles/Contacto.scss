@@ -1,5 +1,5 @@
-@import './config/mixins.scss';
-@import './config/typography.scss';
+@import "./config/mixins.scss";
+@import "./config/typography.scss";
 
 .contacto {
   display: flex;
@@ -43,7 +43,7 @@
   padding: 15px;
 
   @include desktop {
-    width: 1366px;
+    width: 1100px;
   }
 
   &__input {

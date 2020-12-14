@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import classNames from "classnames";
+import { useSelector, useDispatch } from "react-redux";
 
-import fetchProducts from '../helpers/fetchProducts';
+import fetchProducts from "../helpers/fetchProducts";
 
-import BottomBar from './BottomBar';
+import BottomBar from "./BottomBar";
 
-import '../styles/Catalogo.scss';
-import ProductCard from './ProductCard';
+import "../styles/Catalogo.scss";
+import ProductCard from "./ProductCard";
 
 const Catalogo = (props) => {
   const dispatch = useDispatch();
-  const title = 'Catálogo:';
+  const title = "Catálogo:";
 
   const [showFruit, setShowFruit] = useState(false);
   const [showVegetable, setShowVegetable] = useState(false);
@@ -37,12 +37,14 @@ const Catalogo = (props) => {
 
   return (
     <>
-      <div className='catalogo-title'>{title}</div>
-      <div ref={props.ref2} className='catalogo-list'>
+      <div className="catalogo-title">
+        <span>{title}</span>
+      </div>
+      <div ref={props.ref2} className="catalogo-list">
         <div
           onClick={() => setShowFruit(true)}
-          className={classNames('catalogo-list__category', {
-            'catalogo-list__category--grid': showFruit,
+          className={classNames("catalogo-list__category", {
+            "catalogo-list__category--grid": showFruit,
           })}
         >
           {showFruit ? (
@@ -55,8 +57,8 @@ const Catalogo = (props) => {
         </div>
         <div
           onClick={() => setShowVegetable(true)}
-          className={classNames('catalogo-list__category__2', {
-            'catalogo-list__category--grid': showVegetable,
+          className={classNames("catalogo-list__category__2", {
+            "catalogo-list__category--grid": showVegetable,
           })}
         >
           {showVegetable ? (
@@ -68,7 +70,7 @@ const Catalogo = (props) => {
           )}
         </div>
       </div>
-      {addedToCart && <BottomBar isCatalogo items={addedItems} link='/cart' />}
+      {addedToCart && <BottomBar isCatalogo items={addedItems} link="/cart" />}
     </>
   );
 };

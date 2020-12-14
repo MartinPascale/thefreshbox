@@ -1,16 +1,16 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-import BottomBar from '../components/BottomBar';
+import BottomBar from "../components/BottomBar";
 
-import { setCart } from '../reducers/actions';
+import { setCart } from "../reducers/actions";
 
-import boxPhoto from '../assets/fruit-box.png';
-import close from '../assets/close.svg';
-import trash from '../assets/trash.svg';
+import boxPhoto from "../assets/fruit-box.png";
+import close from "../assets/close.svg";
+import trash from "../assets/trash.svg";
 
-import '../styles/Cart.scss';
+import "../styles/Cart.scss";
 
 const Cart = () => {
   const history = useHistory();
@@ -36,60 +36,58 @@ const Cart = () => {
   };
 
   return (
-    <div className='cart'>
-      <div className='cart__title'>Carrito</div>
+    <div className="cart">
+      <div className="cart__title">Carrito</div>
       <img
-        className='checkout__close'
+        className="checkout__close"
         src={close}
         height={18}
         width={18}
-        onClick={() => history.push('/')}
+        onClick={() => history.push("/")}
       />
-      <div className='cart__items'>
-        <div className='cart__items__title'>items</div>
-        <div className='cart__items__list'>
+      <div className="cart__items">
+        <div className="cart__items__title">items</div>
+        <div className="cart__items__list">
           {list &&
             list.length > 0 &&
             list.map((box) => (
-              <div className='list__item'>
-                <div className='list__item__left'>
+              <div className="list__item">
+                <div className="list__item__left">
                   <img src={boxPhoto} height={70} width={90} />
                 </div>
-                <div className='list__item__right'>
-                  <div className='list__item__right__title'>
+                <div className="list__item__right">
+                  <div className="list__item__right__title">
                     {box.name}
                     <button
-                      className='list__item__right__title__delete'
+                      className="list__item__right__title__delete"
                       onClick={() => {
                         handleQtyChange(box, 0);
                       }}
                     >
-                      <img src={trash} alt='delete from cart' />
+                      <img src={trash} alt="delete from cart" />
                     </button>
                   </div>
-                  <div className='list__item__right__items'>
+                  <div className="list__item__right__items">
                     {box.items.map((item) => (
-                      <div className='list__item__right__items__name'>
-                        {box.name === 'TU BOX'
+                      <div className="list__item__right__items__name">
+                        {box.name === "TU BOX"
                           ? item.name
-                          : `${item.split(',')[0]}`}
+                          : `${item.split(",")[0]}`}
                       </div>
                     ))}
                   </div>
-                  <div className='list__item__right__price'>
-                    ${box.name === 'TU BOX' ? box.Total : box.total}
-                  </div>
-                  <div className='list__item__right__quantity-row'>
+                  <div className="list__item__right__price">${box.total}</div>
+                  <div className="list__item__right__quantity-row">
                     <button
-                      className='list__item__right__quantity-row__button'
+                      className="list__item__right__quantity-row__button"
                       onClick={() => {
                         handleQtyChange(box, -1);
                       }}
                       disabled={box.quantity <= 1}
                     ></button>
-                    {box.quantity}
+                    {box.quantity || 1}
                     <button
-                      className='list__item__right__quantity-row__button'
+                      className="list__item__right__quantity-row__button"
                       onClick={() => {
                         handleQtyChange(box, 1);
                       }}
@@ -100,7 +98,7 @@ const Cart = () => {
             ))}
         </div>
       </div>
-      <BottomBar total={total} link='/checkout' />
+      <BottomBar total={total} link="/checkout" />
     </div>
   );
 };
